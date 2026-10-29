@@ -1,21 +1,49 @@
-# Faust HR Solutions — Temporary Website
+# Faust HR Solutions — Website
 
-Static, responsive placeholder website for GitHub Pages. No build process or server required.
+Static, responsive website for Faust HR Solutions, hosted on GitHub Pages. No build process or server required.
 
-## Publish on GitHub Pages
-1. Create a new public GitHub repository (for example, `fhrs-website`).
-2. Upload **all three items** from this folder to the repository root: `index.html`, `styles.css`, `script.js`, and the `assets` folder with its logo. (Four items total.)
-3. Open repository **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**, choose `main` and `/ (root)`, and click **Save**.
-5. Wait for deployment. Your site will be at `https://YOUR-USERNAME.github.io/fhrs-website/`.
+- **Live site:** https://www.fausthrsolutions.com
+- **Repository:** `crlf-pixel/fhrs-website`
+- **Publishing:** GitHub Pages deploys from the `main` branch, root folder. Changes pushed to `main` go live automatically within a minute or two.
 
-## Connect your custom domain (optional)
-In Settings → Pages → Custom domain, enter `www.fausthrsolutions.com`. At your domain DNS provider, add a CNAME record for `www` pointing to `YOUR-USERNAME.github.io` (replace with your actual GitHub username). Follow GitHub's displayed domain-verification instructions and enable **Enforce HTTPS** once available. Avoid changing Microsoft 365 email-related DNS records (MX, SPF, DKIM, DMARC).
+## Files
 
-## Editing
-- Site text and links: `index.html`
-- Colors, fonts, layout: `styles.css`
-- Mobile navigation: `script.js`
-- Logo: `assets/fhrs-logo.png`
+| File | What it controls |
+| --- | --- |
+| `index.html` | Site text, sections, and links |
+| `styles.css` | Colors, fonts, and layout |
+| `script.js` | Mobile menu, footer year, header shadow, scroll animations, and contact form |
+| `assets/fhrs-logo.png` | Logo (header and footer) |
+| `assets/catrina-faust.jpg` | Photo in the About section |
+| `CNAME` | Custom domain setting created by GitHub. **Do not delete.** |
 
-Contact buttons use email and telephone links; there is no backend form or data collection.
+## Updating the site
+
+1. In the repository, open the file you want to change and click the pencil icon, or use **Add file → Upload files** to replace a file.
+2. Commit the change to `main`.
+3. Check the site after a minute or two. If it hasn't updated, check the **Actions** tab for the deployment status.
+
+When replacing files, keep the same names and folder structure. Never delete the `CNAME` file. Without it the site falls back to the github.io address until the domain is re-entered in **Settings → Pages**.
+
+## Domain and DNS
+
+Hosting, DNS, domain verification, and HTTPS are already configured. DNS is managed in Microsoft 365. Do not change the Microsoft 365 email records (MX, SPF, DKIM, DMARC) when making DNS changes.
+
+`fausthr.com` is planned as a short marketing domain. It should be set up as domain forwarding to `https://www.fausthrsolutions.com` at its registrar, not added to GitHub Pages (Pages supports one custom domain per site).
+
+## Contact and data collection
+
+### Contact form
+
+The contact form is sent through [Web3Forms](https://web3forms.com) (free plan: 250 messages per month, with spam protection). It collects name, email, company, phone, topic, and message, and emails each inquiry to the address the access key was created for.
+**One-time setup:**
+1. Go to https://web3forms.com and create an access key using `catrina.faust@fausthrsolutions.com`.
+2. Open the confirmation email and copy the access key.
+3. In `index.html`, find `YOUR_ACCESS_KEY` and replace it with the key. Commit the change.
+4. Send a test message from the live site and confirm it arrives. Check the junk folder the first time.
+
+Until the key is added, the form shows a message asking visitors to email Catrina directly.
+
+### Planned additions
+
+- Google Analytics 4 and Microsoft Clarity. These collect visitor data, so a privacy policy page should be added along with them. The policy should also cover the contact form.
